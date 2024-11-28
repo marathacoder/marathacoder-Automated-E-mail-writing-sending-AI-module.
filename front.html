@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Front Page</title>
+    <link rel="stylesheet" href="static\front.css">
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
+    <style>
+        /* Contact Us button styles */
+        .contact-us {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #3771af;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+        }
+        .contact-us:hover {
+            background-color: #0056b3;
+        }
+        .contact-us i {
+            margin-right: 8px;
+        }
+
+        /* Animated dropdown with sliding effect */
+        .contact-names {
+            display: none;
+            position: absolute;
+            top: 60px;
+            right: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 15px 20px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            width: 200px;
+            transition: transform 0.3s ease, opacity 0.3s ease;
+            opacity: 0;
+            transform: translateY(-10px);
+            z-index: 1000;
+        }
+        .contact-names.show {
+            display: block;
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contact-names p {
+            margin: 10px 0;
+            font-size: 14px;
+            color: #333;
+            display: flex;
+            align-items: center;
+        }
+        .contact-names p i {
+            margin-right: 8px;
+            color: #007BFF;
+        }
+
+        /* Centered 'Get Started' button */
+        .get-started-btn {
+            display: block;
+            background-color: #3771af;
+            color: #fff;
+            padding: 12px 20px;
+            border-radius: 5px;
+            text-align: center;
+            font-size: 18px;
+            margin: 10px;
+            width: 200px;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .get-started-btn:hover {
+            background-color: #0056b3;
+        }
+
+        /* About Us section */
+        .about-us {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .about-image img {
+            width: 100%;
+            max-width: 500px;
+            margin-top: 20px;
+        }
+        .about-text {
+            padding: 20px;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="left"><img src="static/logo.png" alt="Logo" /></li>
+                <li class="center"><h2><b>Home</b></h2></li>
+                <button class="contact-us" id="contact-us-btn">
+                    <i class="fa-solid fa-address-book"></i> Contact Us
+                </button>
+                <div class="contact-names" id="contact-names">
+                    <p><i class="fa-solid fa-chalkboard-user"></i>Dr. Dipti Chauhan</p>
+                    <p><i class="fa-solid fa-chalkboard-user"></i>Dr. Pritika Bahad</p>
+                    <p><i class="fa-solid fa-user"></i> Dwarkesh Saxena</p>
+                    <p><i class="fa-solid fa-user"></i> Saloni Shinde</p>
+                    <p><i class="fa-solid fa-user"></i> Shruti Tiwari</p>
+                    <p><i class="fa-solid fa-user"></i> Yash Kute</p>
+                    <p><i class="fa-solid fa-user"></i> Yash Sonwane</p>
+                </div>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="about-us">
+        <h2><u>About Us</u></h2>
+        <div class="about-content">
+            <div class="about-text">
+                <h3>Welcome To Our Website</h3>
+                <p>Our team of five AI enthusiasts is transforming text generation with Navkriti, a cutting-edge platform that seamlessly integrates AI-driven content creation with humanization capabilities. With a shared vision for more natural, empathetic AI interactions, we're pushing the frontiers of language technology.</p>
+                <!-- Updated 'Get Started' button with correct link -->
+                <a href="{{ url_for('login') }}" class="get-started-btn" id="get-started-btn">Get Started</a>
+            </div>
+            <div class="about-image">
+                <img src="static\team.jpg" alt="Team working" />
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // JavaScript to toggle the dropdown
+        document.getElementById("contact-us-btn").addEventListener("click", function () {
+            var contactNames = document.getElementById("contact-names");
+            contactNames.classList.toggle("show");
+        });
+
+        // Close the dropdown if clicked outside
+        window.addEventListener("click", function (e) {
+            var contactBtn = document.getElementById("contact-us-btn");
+            var contactNames = document.getElementById("contact-names");
+            if (!contactBtn.contains(e.target) && !contactNames.contains(e.target)) {
+                contactNames.classList.remove("show");
+            }
+        });
+
+        </script>
+</body>
+</html>

@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Register</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <script src="https://kit.fontawesome.com/97ebdf5864.js" crossorigin="anonymous"></script>
+    <style>
+        /* Toggle between login and register forms */
+        .form-container { display: none; }
+        .form-container.active { display: block; }
+
+        /* Alert notification styles */
+        .alert {
+            position: fixed;
+            top: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 10px 20px;
+            color: #fff;
+            background-color: #f44336; /* Default: red for error */
+            border-radius: 5px;
+            font-size: 16px;
+            z-index: 1000;
+            opacity: 0;
+            transition: top 0.5s ease, opacity 0.5s ease;
+        }
+        .alert.success { background-color: #4CAF50; } /* Green for success */
+        .alert.visible { top: 20px; opacity: 1; } /* Visible position */
+
+        /* Center toggle buttons */
+        #toggle-btns { text-align: center; margin-top: 20px; }
+        #toggle-btns button { padding: 10px 20px; margin: 0 10px; }
+    </style>
+</head>
+<body>
+
+    <!-- Alert message -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <div id="alert-container">
+          {% for category, message in messages %}
+            <div class="alert {{ category }} visible">{{ message }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <div class="container">
+        <h2 id="form-title">Login</h2>
+
+        <!-- Login Form -->
+        <div class="form-container active" id="login-form">
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <input id="btn" type="submit" value="Login">
+                <p>Don't have an account? <a href="#" onclick="toggleForms('register')">Register</a></p>
+            </form>
+        </div>
+
+        <!-- Register Form -->
+        <div class="form-container" id="register-form">
+            <form action="/register" method="POST">
+                <div class="form-group">
+                    <input type="text" name="username" required>
+                    <label>Username</label>
+                    <i class="fa-solid fa-user"></i>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" required>
+                    <label>Email</label>
+                    <i class="fa-solid fa-envelope"></i>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" required>
+                    <label>Password</label>
+                    <i class="fa-solid fa-lock"></i>
+                </div>
+                <input id="btn" type="submit" value="Register">
+                <p>Already have an account? <a href="#" onclick="toggleForms('login')">Login</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // JavaScript to toggle between login and register forms
+        function toggleForms(formType) {
+            const loginForm = document.getElementById('login-form');
+            const registerForm = document.getElementById('register-form');
+            const formTitle = document.getElementById('form-title');
+
+            if (formType === 'register') {
+                loginForm.classList.remove('active');
+                registerForm.classList.add('active');
+                formTitle.textContent = 'Register';
+            } else {
+                registerForm.classList.remove('active');
+                loginForm.classList.add('active');
+                formTitle.textContent = 'Login';
+            }
+        }
+
+        // JavaScript to remove alert messages after a few seconds
+        window.onload = function() {
+            const alert = document.querySelector('.alert.visible');
+            if (alert) {
+                setTimeout(() => {
+                    alert.classList.remove('visible');
+                }, 3000);  // Alert visible for 3 seconds
+            }
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Content Generator</title>
+    <link rel="stylesheet" href="static/styles2.css">
+</head>
+
+<body>
+    
+
+    <div class="container">
+        <!-- Sidebar Section -->
+        <aside class="sidebar">
+            <h2>Content Options</h2>
+            <nav aria-label="Content Type Selection">
+                <ul>
+                    <li><button onclick="selectContentType('email')">Email</button></li>
+                    <li><button onclick="selectContentType('blog')">Blog</button></li>
+                    <li><button onclick="selectContentType('article')">Article</button></li>
+                </ul>
+            </nav>
+            <button class="history-button" onclick="viewHistory()">View History</button>
+        </aside>
+
+        <!-- Main Content Section -->
+        <main class="main-content">
+            <h1 id="form-title">Email Content Generator</h1>
+
+            <!-- Email Layout -->
+            <section id="email-layout" class="form-layout active" role="form">
+                <div class="form-group">
+                    <label for="email-prompt">Enter User Prompt:</label>
+                    <input type="text" id="email-prompt" placeholder="Enter a prompt" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email-recipient">Recipient Email:</label>
+                    <input type="email" id="email-recipient" placeholder="Enter recipient email" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="sender-name">Sender Name:</label>
+                    <input type="text" id="sender-name" placeholder="Enter Sender Name" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="sender-position">Sender Position:</label>
+                    <input type="text" id="sender-position" placeholder="Enter Sender Position" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="email-message">Message:</label>
+                    <textarea id="email-message" rows="5" placeholder="Generated email" readonly aria-readonly="true"></textarea>
+                </div>
+            </section>
+
+            <!-- Blog Layout -->
+            <section id="blog-layout" class="form-layout" style="display:none;" role="form">
+                <div class="form-group">
+                    <label for="blog-prompt">Enter User Prompt:</label>
+                    <input type="text" id="blog-prompt" placeholder="Enter a prompt" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="blog-content">Blog Content:</label>
+                    <textarea id="blog-content" rows="10" placeholder="Generated Blog" readonly aria-readonly="true"></textarea>
+                </div>
+            </section>
+
+            <!-- Article Layout -->
+            <section id="article-layout" class="form-layout" style="display:none;" role="form">
+                <div class="form-group">
+                    <label for="article-prompt">Enter User Prompt:</label>
+                    <input type="text" id="article-prompt" placeholder="Enter a prompt" aria-required="true">
+                </div>
+                <div class="form-group">
+                    <label for="article-content">Article Content:</label>
+                    <textarea id="article-content" rows="10" placeholder="Generated Article" readonly aria-readonly="true"></textarea>
+                </div>
+            </section>
+
+            <!-- Button Group -->
+                <div class="button-group">
+                    <button id="generate-btn" onclick="generateContent()">Generate</button>
+                <button id="send-btn" onclick="sendEmail()" style="display: none;">Send Email</button>
+</div>
+
+
+
+        </main>
+
+        <!-- History Popup Modal -->
+    <div id="history-popup" class="history-popup" role="dialog" aria-labelledby="history-title" style="display:none;">
+        <div class="popup-content">
+            <h2 id="history-title">Content History</h2>
+            <ul id="history-list">
+
+            </ul>
+            <button onclick="closeHistory()">Close</button>
+        </div>
+    </div>
+
+
+
+    </div>
+
+    
+    <script src="static/scripts2.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,205 @@
+/* About Us Section */
+.about-us-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 40px 20px;
+    margin: 0 auto;
+    max-width: 800px;
+    color: #ffffff;
+}
+
+.about-us-section h2 {
+    font-size: 28px;
+    color: #007BFF; /* Accent color for the title */
+    margin-bottom: 20px;
+}
+
+.about-us-section p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+
+/* Reset some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+/* Header and navigation bar */
+header {
+    background-color: #333;
+    padding: 10px 20px;
+}
+
+nav ul {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    align-items: center;
+}
+
+nav ul li {
+    padding: 5px 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+/* Left side Contact Us */
+.left {
+
+    margin-left: 0;
+}
+
+/* Centered Home link */
+.center {
+    color: #f4f4f4;
+    margin: auto;
+    
+}
+
+/* Right side Logo */
+.right {
+    margin-right: 0;
+}
+
+.logo {
+    width: 100px;
+}
+
+/* Header and navigation bar */
+header {
+    background-color: #ddcdcd; /* Set to pure black */
+    padding: 6px 15px;
+}
+/* Body styling with background image */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('bg.jpg'); /* Replace 'background.jpg' with the path to your image */
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Keeps the image fixed when scrolling */
+    background-position: center;
+}
+
+/* Header and navigation bar */
+
+/* Logo on the left */
+nav .left img {
+    height: 50px; /* Adjust height as needed */
+    width: auto;
+}
+
+ul {
+    display: flex;
+    list-style-type: none;
+}
+
+ul li {
+    margin-left: 20px;
+}
+
+ul .center h2, ul .right a {
+    color: #080808;
+    text-decoration: none;
+    font-size: 1.5em;
+    font-weight: 500;
+    justify-content: space-between;
+}
+ul .center h2{
+    padding-right: 250px;
+}
+
+
+
+
+
+.about-us {
+    width: 90%; /* Increased width */
+    max-width: 1000px; /* Increased max-width */
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about-us h2 {
+    font-size: 3em; /* Increased font size for the heading */
+    color: #ffffff; /* Accent color for "About Us" */
+    margin-bottom: 20px;
+    margin-top: 60px; /* Adjust this value to control vertical spacing */
+}
+
+/* Flex layout for text and image */
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the content */
+    gap: 30px;
+}
+
+/* About Text Section with Frosted Glass Effect */
+.about-text {
+    flex: 1;
+    background: rgba(236, 232, 232, 0.3);
+    backdrop-filter: blur(5px);
+    padding: 40px; /* Increased padding for more space inside */
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+    color: #fff;
+    text-align: left;
+}
+
+.about-text h3 {
+    font-size: 2em; /* Increased font size for the subheading */
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.about-text p {
+    font-size: 1.2em; /* Increased font size for paragraph */
+    color: #000000;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.Get_start {
+    background-color: #4972cb;
+    color: #fff;
+    box-shadow: 0 0 30px rgba(40, 37, 37, 0.8);
+    padding: 12px 24px;
+    font-size: 1.2em; /* Increased button font size */
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.learn-more-btn:hover {
+    background-color: #e64a19;
+}
+
+/* About Image Section */
+.about-image {
+    width: 150%;
+
+    flex: 1;
+}
+
+.about-image img {
+    max-width: 450px; /* Increased image size */
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
