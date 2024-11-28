@@ -1,0 +1,2 @@
+# marathacoder-Automated-E-mail-writing-sending-AI-module.
+Abstract: - E-Mailgineers is an AI-powered program that generates material such as emails, blogs, and articles in response to user inputs. E-Mailgineers uses Cohere AI for content production and understands prompts using tiered processing to assure relevance and quality. Its main feature, the "humanizer," improves AI-generated text for natural read
